@@ -8,6 +8,7 @@ Plug 'tc50cal/vim-terminal'
 Plug 'preservim/tagbar'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'mhinz/vim-startify'
+Plug 'mhinz/vim-signify'
 
 call plug#end()
 
@@ -29,6 +30,8 @@ nmap <F8> :TagbarToggle<CR>
 "Awesome-vim-colorschemes
 set background=dark
 :colorscheme deus
+
+set updatetime=100
 
 "General Settings:
 
