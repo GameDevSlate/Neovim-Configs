@@ -9,6 +9,8 @@ Plug 'preservim/tagbar'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'mhinz/vim-startify'
 Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-fugitive'
+Plug 'rbong/vim-flog'
 
 call plug#end()
 
@@ -53,7 +55,7 @@ set fileformat=unix
 
     set nocompatible
 
-    syntax on
+    "syntax on
 
     set encoding=utf-8
 
