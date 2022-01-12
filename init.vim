@@ -11,6 +11,7 @@ Plug 'mhinz/vim-startify'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
