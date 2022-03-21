@@ -32,7 +32,7 @@ nmap <F8> :TagbarToggle<CR>
 
 "Awesome-vim-colorschemes
 set background=dark
-:colorscheme deus
+:colorscheme nord
 
 set updatetime=100
 
