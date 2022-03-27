@@ -1,17 +1,26 @@
+function! Cond(cond, ...)
+    let opts = get(a:000, 0, {})
+    return a:cond ? opts : extend(opts, { 'on' : [], 'for': [] })
+endfunction
+
 call plug#begin()
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tc50cal/vim-terminal'
-Plug 'preservim/tagbar'
-Plug 'rafi/awesome-vim-colorschemes'
-Plug 'mhinz/vim-startify'
-Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-fugitive'
-Plug 'rbong/vim-flog'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" All of these extensions only work in regular Neovim mode,
+" so do not run the plugins on vscode
+if !exists('g:vscode')
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'preservim/nerdtree'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'tc50cal/vim-terminal'
+    Plug 'preservim/tagbar'
+    Plug 'rafi/awesome-vim-colorschemes'
+    Plug 'mhinz/vim-startify'
+    Plug 'mhinz/vim-signify'
+    Plug 'tpope/vim-fugitive'
+    Plug 'rbong/vim-flog'
+    Plug 'neoclide/coc.nvim', {'branch' : 'release'}
+endif
 
 call plug#end()
 
@@ -32,7 +41,10 @@ nmap <F8> :TagbarToggle<CR>
 
 "Awesome-vim-colorschemes
 set background=dark
-:colorscheme nord
+
+if !exists('g:vscode')
+    :colorscheme nord
+endif
 
 set updatetime=100
 
