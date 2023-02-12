@@ -3,6 +3,17 @@ function! Cond(cond, ...)
     return a:cond ? opts : extend(opts, { 'on' : [], 'for': [] })
 endfunction
 
+" Install vim-plug if not found
+let data_dir = has('nvim') ? stdpath('data') . '/site' : has('win32') ? '~/vimfiles' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.fnamemodify(data_dir.'/autoload/plug.vim', ':p:S').' --create-dirs --insecure https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
 call plug#begin()
 
 " All of these extensions only work in regular Neovim mode,
@@ -45,7 +56,6 @@ set background=dark
 if !exists('g:vscode')
     :colorscheme nord
 endif
-
 set updatetime=100
 
 "General Settings:
